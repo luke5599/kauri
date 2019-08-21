@@ -3,54 +3,64 @@
 import "./styles.scss";
 
 import { h, Component, createRef } from "preact";
-import { renderDocumentNodes } from "dom/render";
-import ToolBar from "components/Editor/ToolBar";
-
-const POST_URI = "http://127.0.0.1:3000/key";
+import { renderNodeList } from "dom/render";
+import { connect } from "react-redux";
+import { updateCaretPos } from "redux/actions";
 
 /**
  * A document editing component.
  * @extends Component
  */
-export default class Editor extends Component {
+class Editor extends Component {
   /**
    * Constructs a new editor component.
-   * @param {Object} props Component properties.
-   * @param {DOM} props.dom A DOM to render in the editor.
    */
   constructor(props) {
     super(props);
     this.contentEditableDiv = createRef();
-    this.clearContentEditable = this.clearContentEditable.bind(this);
+
+    // Binds
+    this.handleDocumentClick = this.handleDocumentClick.bind(this);
   }
 
-  /**
-   * @private
-   */
   componentDidMount() {
     document.execCommand("defaultParagraphSeparator", false, "p");
+    document.execCommand("styleWithCSS", false, true);
   }
 
   /**
-   * Clears the contents of the contenteditable div, designed for use before loading a new file.
+   * Returns absolute values of caret's start/end positions
    */
-  clearContentEditable() {
-    this.contentEditableDiv.current.innerHTML = "";
+  getCaretPos() {
+    const range = document.getSelection().getRangeAt(0);
+    const preSelectionRange = range.cloneRange();
+    preSelectionRange.selectNodeContents(this.contentEditableDiv.current);
+    preSelectionRange.setEnd(range.startContainer, range.startOffset);
+    const positionStart = preSelectionRange.toString().length;
+    const positionEnd = positionStart + range.toString().length;
+    return { positionStart, positionEnd };
   }
 
-  render(props) {
-    return (
-      <div>
-        <ToolBar />
-
-        <div
-          ref={this.contentEditableDiv}
-          class="editor"
-          contenteditable="true"
-        >
-          {renderDocumentNodes(props.dom.children)}
-        </div>
-      </div>
-    );
+  /**
+   * Handles clicks to the document element.
+   */
+  handleDocumentClick() {
+    this.props.updateCaretPos(this.getCaretPos());
   }
+
+  render = props => (
+    <div
+      ref={this.contentEditableDiv}
+      class="editor"
+      contenteditable="true"
+      onClick={this.handleDocumentClick}
+    >
+      {renderNodeList(props.document)}
+    </div>
+  );
 }
+
+export default connect(
+  state => ({ document: state.document }),
+  { updateCaretPos },
+)(Editor);
