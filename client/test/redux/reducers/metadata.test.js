@@ -9,16 +9,6 @@ describe("metadata reducer", () => {
       metadataReducer(
         {
           title: "Let's Rethink Document Processing",
-          authors: [
-            "Sean Bailey",
-            "Adam Crocker",
-            "Prajna Sariputra",
-            "Luke Ingram",
-            "David Abraham",
-          ],
-          createdAt: "2019-08-01T12:59:15+11:00",
-          updatedAt: "2019-08-01T12:59:15+11:00",
-          editDuration: "P3Y6M4DT12H30M5S",
         },
         {
           type: types.SET_METADATA,
@@ -28,54 +18,6 @@ describe("metadata reducer", () => {
       ),
     ).toEqual({
       title: "Updated title",
-      authors: [
-        "Sean Bailey",
-        "Adam Crocker",
-        "Prajna Sariputra",
-        "Luke Ingram",
-        "David Abraham",
-      ],
-      createdAt: "2019-08-01T12:59:15+11:00",
-      updatedAt: "2019-08-01T12:59:15+11:00",
-      editDuration: "P3Y6M4DT12H30M5S",
-    });
-  });
-
-  it("should handle addding an author", () => {
-    expect(
-      metadataReducer(
-        {
-          title: "Let's Rethink Document Processing",
-          authors: [
-            "Sean Bailey",
-            "Adam Crocker",
-            "Prajna Sariputra",
-            "Luke Ingram",
-            "David Abraham",
-          ],
-          createdAt: "2019-08-01T12:59:15+11:00",
-          updatedAt: "2019-08-01T12:59:15+11:00",
-          editDuration: "P3Y6M4DT12H30M5S",
-        },
-        {
-          type: types.SET_METADATA,
-          key: "authors",
-          data: "Testing Man",
-        },
-      ),
-    ).toEqual({
-      title: "Let's Rethink Document Processing",
-      authors: [
-        "Sean Bailey",
-        "Adam Crocker",
-        "Prajna Sariputra",
-        "Luke Ingram",
-        "David Abraham",
-        "Testing Man",
-      ],
-      createdAt: "2019-08-01T12:59:15+11:00",
-      updatedAt: "2019-08-01T12:59:15+11:00",
-      editDuration: "P3Y6M4DT12H30M5S",
     });
   });
 
@@ -84,16 +26,6 @@ describe("metadata reducer", () => {
       metadataReducer(
         {
           title: "Let's Rethink Document Processing",
-          authors: [
-            "Sean Bailey",
-            "Adam Crocker",
-            "Prajna Sariputra",
-            "Luke Ingram",
-            "David Abraham",
-          ],
-          createdAt: "2019-08-01T12:59:15+11:00",
-          updatedAt: "2019-08-01T12:59:15+11:00",
-          editDuration: "P3Y6M4DT12H30M5S",
         },
         {
           type: types.SET_METADATA,
@@ -103,16 +35,6 @@ describe("metadata reducer", () => {
       ),
     ).toEqual({
       title: "Let's Rethink Document Processing",
-      authors: [
-        "Sean Bailey",
-        "Adam Crocker",
-        "Prajna Sariputra",
-        "Luke Ingram",
-        "David Abraham",
-      ],
-      createdAt: "2019-08-01T12:59:15+11:00",
-      updatedAt: "2019-08-01T12:59:15+11:00",
-      editDuration: "P3Y6M4DT12H30M5S",
       layout: "design",
     });
   });

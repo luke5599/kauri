@@ -13,6 +13,6 @@ describe("actions", () => {
       key,
       data,
     };
-    expect(actions.setMetaData(key, data)).toEqual(expectedAction);
+    expect(actions.setMetadata(key, data)).toEqual(expectedAction);
   });
 });

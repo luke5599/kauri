@@ -23,7 +23,7 @@ export const updateCaretPos = ({ positionStart, positionEnd }) => ({
   },
 });
 
-export const setMetaData = (key, data) => ({
+export const setMetadata = (key, data) => ({
   type: SET_METADATA,
   key,
   data,
