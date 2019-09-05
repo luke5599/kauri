@@ -3,6 +3,7 @@ import {
   ADD_COMMAND,
   UPDATE_CARET_POSITION,
   SET_METADATA,
+  SET_STYLES,
 } from "./actionTypes";
 
 export const addCommand = (id, name, keys, behaviour) => ({
@@ -27,4 +28,9 @@ export const setMetadata = (key, data) => ({
   type: SET_METADATA,
   key,
   data,
+});
+
+export const setStyles = payload => ({
+  type: SET_STYLES,
+  payload,
 });
