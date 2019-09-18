@@ -1,7 +1,7 @@
 /** @format */
 
 import stylesReducer from "./styles";
-import * as types from "../actionTypes";
+import * as types from "../action/types";
 
 describe("style reducer", () => {
   it("should handle SET_STYLES", () => {

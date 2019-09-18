@@ -1,7 +1,7 @@
 /** @format */
 
 import { combineReducers } from "redux";
-import { SET_STYLES } from "../actionTypes";
+import { SET_STYLES } from "../action/types";
 
 export default combineReducers({
   allIds: allStyles,
