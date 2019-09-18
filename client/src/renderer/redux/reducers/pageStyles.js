@@ -1,7 +1,7 @@
 /** @format */
 
 import { combineReducers } from "redux";
-import { SET_PAGE_STYLES } from "../action/types";
+import { SET_PAGE_STYLES } from "../actions/types";
 
 export default combineReducers({
   allIds: allStyles,
@@ -21,7 +21,6 @@ function stylesById(state = {}, action) {
   switch (action.type) {
     case SET_PAGE_STYLES:
       return {
-        ...state,
         [action.key]: action.data,
       };
     default:
