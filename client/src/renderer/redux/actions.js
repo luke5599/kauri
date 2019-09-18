@@ -30,7 +30,14 @@ export const setMetadata = (key, data) => ({
   data,
 });
 
-export const setStyles = payload => ({
+export const setStyles = (key, data) => ({
   type: SET_STYLES,
-  payload,
+  key,
+  data,
+});
+
+export const setPageStyles = (key, data) => ({
+  type: SET_PAGE_STYLES,
+  key,
+  data,
 });

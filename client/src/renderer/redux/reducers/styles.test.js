@@ -10,8 +10,8 @@ describe("style reducer", () => {
         { allIds: [], byId: {} },
         {
           type: types.SET_STYLES,
-          payload: {
-            id: "h1",
+          key: "h1",
+          data: {
             display: "Heading 1",
             element: {
               type: "heading",
@@ -29,7 +29,6 @@ describe("style reducer", () => {
       allIds: ["h1"],
       byId: {
         h1: {
-          id: "h1",
           display: "Heading 1",
           element: {
             type: "heading",
