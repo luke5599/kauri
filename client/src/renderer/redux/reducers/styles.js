@@ -22,7 +22,7 @@ function stylesById(state = {}, action) {
     case SET_STYLES:
       return {
         ...state,
-        [action.key]: action.data,
+        [action.key]: action.value,
       };
     default:
       return state;

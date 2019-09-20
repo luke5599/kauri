@@ -6,7 +6,7 @@ import * as types from "./types";
 describe("actions", () => {
   it("should create an action to set styles", () => {
     const key = "h1";
-    const data = {
+    const value = {
       display: "Heading 1",
       element: {
         type: "heading",
@@ -22,8 +22,8 @@ describe("actions", () => {
     const expectedAction = {
       type: types.SET_STYLES,
       key,
-      data,
+      value,
     };
-    expect(actions.setStyles(key, data)).toEqual(expectedAction);
+    expect(actions.setStyles(key, value)).toEqual(expectedAction);
   });
 });

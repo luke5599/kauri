@@ -11,7 +11,7 @@ describe("page style reducer", () => {
         {
           type: types.SET_PAGE_STYLES,
           key: "page",
-          data: {
+          value: {
             size: "A4",
             orientation: "portrait",
             margin: "2cm 3cm",

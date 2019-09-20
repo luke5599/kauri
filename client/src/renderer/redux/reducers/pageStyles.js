@@ -21,7 +21,7 @@ function stylesById(state = {}, action) {
   switch (action.type) {
     case SET_PAGE_STYLES:
       return {
-        [action.key]: action.data,
+        [action.key]: action.value,
       };
     default:
       return state;

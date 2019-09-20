@@ -11,7 +11,7 @@ describe("style reducer", () => {
         {
           type: types.SET_STYLES,
           key: "h1",
-          data: {
+          value: {
             display: "Heading 1",
             element: {
               type: "heading",

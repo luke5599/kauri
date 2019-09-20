@@ -6,7 +6,7 @@ import * as types from "./types";
 describe("actions", () => {
   it("should create an action to set page styles", () => {
     const key = "page";
-    const data = {
+    const value = {
       size: "A4",
       orientation: "portrait",
       margin: "2cm 3cm",
@@ -17,8 +17,8 @@ describe("actions", () => {
     const expectedAction = {
       type: types.SET_PAGE_STYLES,
       key,
-      data,
+      value,
     };
-    expect(actions.setPageStyles(key, data)).toEqual(expectedAction);
+    expect(actions.setPageStyles(key, value)).toEqual(expectedAction);
   });
 });
