@@ -15,23 +15,14 @@ export function toCSS(style) {
  * @param style Reducer style object
  */
 export function renderStyle(style) {
-  const css = getStyles(style);
-  return css;
-}
-
-/*
- * Convert object into css string
- * @param style Reducer style object
- */
-function getStyles(style) {
-  let text = "";
-  Object.entries(style).map(([id, value]) => {
-    text = `${text}.__editor__${id} { `;
-    Object.entries(value.styles).map(([cssKey, cssValue]) => {
-      cssKey = kebabize(cssKey);
-      text = `${text}${cssKey}: ${cssValue}; `;
+  let css = "";
+  Object.entries(style).map(([selector, value]) => {
+    css = `${css}.__editor__${selector} { `;
+    Object.entries(value.styles).map(([property, value]) => {
+      property = kebabize(property);
+      css = `${css}${property}: ${value}; `;
     });
-    text = `${text}}`;
+    css = `${css}}`;
   });
-  return text;
+  return css;
 }
