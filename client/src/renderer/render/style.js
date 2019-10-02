@@ -11,8 +11,10 @@ export function toCSS(style) {
 }
 
 /*
- * Render CSS from style reducer
- * @param style Reducer style object
+ * Convert style reducer object into a string with 
+ * valid CSS selectors and properties which will 
+ * returned and added to the head of the document. 
+ * @param A style Reducer object
  */
 export function renderStyle(style) {
   let css = "";
